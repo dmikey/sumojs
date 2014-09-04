@@ -1,0 +1,30 @@
+{
+  "name": "sumojs",
+  "version": "0.0.0",
+  "description": "minimal responsive javascript ui framework",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmikey/sumojs.git"
+  },
+  "keywords": [
+    "framework",
+    "javascript",
+    "micro",
+    "small",
+    "ui",
+    "web",
+    "html",
+    "html5",
+    "css"
+  ],
+  "author": "Derek M. Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmikey/sumojs/issues"
+  },
+  "homepage": "https://github.com/dmikey/sumojs"
+}
