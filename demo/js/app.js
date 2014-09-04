@@ -2,9 +2,7 @@ define(function(){
     //use require.js, return a sumo object
     return sumo.create({
         name: 'demoApp',
-        foo: function(msg) {
-            console.log(msg);
-        },
-        mixins: ['component']
+        mixins: ['component'],
+        content: 'I rendered from JavaScript'
     });
 });

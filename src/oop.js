@@ -31,6 +31,7 @@ define(['./platform', './utility', './mixins', 'require'], function (platform, u
 
     oop.extends = {
         //collection of extends that will be applied to a sumo
+        tag: 'div',
         ready: function(fn) {
             var component = this;
             var boundFn = utility.bind(fn, component);

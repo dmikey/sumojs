@@ -7,7 +7,7 @@ requirejs(['../demo/js/app'], function (app) {
 
     //do some javascript when the app has loaded
     _app.ready(function(){
-        console.log(this);
-
+        //this is bound to the instance of this new app!
+        _app.renderInto(document.body);
     });
 });
