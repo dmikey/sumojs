@@ -4,6 +4,7 @@ define(function(){
         name: 'demoApp',
         foo: function(msg) {
             console.log(msg);
-        }
+        },
+        mixins: ['component']
     });
 });

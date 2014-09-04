@@ -1,5 +1,11 @@
-requirejs(['oop', 'platform', 'utility', 'mixins'],
-  function (oop,   platform,   utility,   mixins) {
+requirejs(['oop'
+          ,'platform'
+          ,'utility'
+          ,'mixins'],
+  function (oop
+           ,platform
+           ,utility
+           ,mixins) {
 
     //public api map
     var sumo = platform.scope.sumo = {

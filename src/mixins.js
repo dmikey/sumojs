@@ -1,4 +1,4 @@
-define(['./utility'], function (utility) {
+define(['./utility'], function(utility) {
 
     var mixins = {};
 
