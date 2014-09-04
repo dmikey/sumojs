@@ -12,32 +12,50 @@ define(['./platform', './utility', './mixins', 'require'], function (platform, u
 
               //extend the defs passed to the constructor
               var extendedDef = utility.extend(def, extend);
+              extendedDef = utility.extend(def, oop.extends);
 
               //apply mixins needed for runtime
               if(def.mixins){
+                  extendedDef.isReady = false;
                   extendedDef = oop.mixins(def, def.mixins);
               }
 
+
               return extendedDef;
         }
-
 
         ctor.prototype = def;
         //return the sumo
         return ctor;
     };
 
+    oop.extends = {
+        ready: function(fn) {
+            var component = this;
+            var boundFn = utility.bind(fn, component);
+            var readyStateCheckInterval = window.setInterval(function () {
+                if (component.isReady) {
+                    window.clearInterval(readyStateCheckInterval);
+                    boundFn();
+                }
+            }, 10);
+
+        }
+    };
+
     oop.mixins = function(def, _mixins) {
+
         while(_mixins.length > 0) {
             var _mixin = _mixins.pop();
 
             require(['./' + _mixin], function(_mixin_) {
                 def = mixins.mix(def, _mixin_);
+                def.isReady = true;
             });
-
-            //remove the mixins property
-            delete def.mixins;
         }
+
+        //remove the mixins property
+        delete def.mixins;
         return def;
     };
 

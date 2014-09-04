@@ -1,4 +1,4 @@
 sumojs
 ======
 
-Responsive JavaScript UI Framework
+a minimalistic, responsive, javascript framework. built with requirejs.
