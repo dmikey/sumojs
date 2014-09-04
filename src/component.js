@@ -1,6 +1,7 @@
 define(function(require) {
 
     var buildHTML = function(component) {
+
         if(component.components){
 
         }
