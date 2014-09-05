@@ -8,6 +8,10 @@ requirejs(['../demo/js/app'], function (app) {
     //do some javascript when the app has loaded
     _app.ready(function(){
         //this is bound to the instance of this new app!
-        _app.renderInto(document.body);
+        _app.renderInto(document.body, function() {
+            //providing a nice chain of callbacks
+            //preserving the 'this' context
+            console.log(this.name);
+        });
     });
 });

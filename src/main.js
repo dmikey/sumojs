@@ -3,14 +3,18 @@
 * MIT License, all that Jazz. Use it however.
 * 2014 Derek M. Anderson
 */
-define(['oop'
+   define(['oop'
           ,'platform'
           ,'utility'
-          ,'mixins'],
+          ,'mixins'
+          ,'messages'
+          ,'meta'],
   function (oop
            ,platform
            ,utility
-           ,mixins) {
+           ,mixins
+           ,messages
+           ,meta) {
 
     //public api map
     var sumo = platform.scope.sumo = {
@@ -20,8 +24,11 @@ define(['oop'
         mixin: mixins.mix,
         platform: platform,
         ready: utility.ready,
-        version: ''
+        version: meta.version,
+        pub: messages.pub,
+        sub: messages.sub,
+        unsub: messages.unsub
     };
 
-      return sumo;
+    return sumo;
 });

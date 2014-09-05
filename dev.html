@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="node_modules/requirejs/require.js"></script>
+
+        <script>
+            requirejs.config({
+                baseUrl: 'src'
+            });
+        </script>
+
+        <script>
+            define('app', ['./main'], function(sumo){
+                //use require.js, return a sumo object
+                return sumo.create({
+                    name: 'demoApp',
+                    classes: 'demo',
+                    mixins: ['component'],
+                    content: 'I love JavaScript'
+                });
+            });
+
+            //urls are relative for dev mode
+            requirejs(['app'], function (app) {
+
+                //create a new version of the app
+                //add some properties to the app when constructed
+                var _app = new app({bar: 'baz'});
+
+                //do some javascript when the app has loaded
+                _app.ready(function(){
+                    //this is bound to the instance of this new app!
+                    _app.renderInto(document.body, function() {
+                        //providing a nice chain of callbacks
+                        //preserving the 'this' context
+                        console.log(this.name);
+                    });
+                });
+            });
+
+        </script>
+    </head>
+
+    <body>
+    </body>
+
+</html>

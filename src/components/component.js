@@ -1,4 +1,4 @@
-define(function(require) {
+define(['../messages', '../utility'],function(messages, utility) {
 
     var buildHTML = function(component) {
 
@@ -10,12 +10,23 @@ define(function(require) {
     }
 
     var component = {
-        renderInto: function(target) {
+        tag: 'div',
+        create: function(){
+            this.channel = '/'+ this.name +'/rendered';
+        },
+        renderInto: function(target, cb) {
+
             if(target) {
                 var _component = this;
                 var _tag = document.createElement(_component.tag);
                 _tag.innerHTML = buildHTML(_component);
                 target.innerHTML = _tag.outerHTML;
+                //subscribe to some channel
+
+                cb = utility.bind(cb, _component);
+
+
+                messages.sub(this.channel, cb);
             }
         },
         appendTo: function(target) {
