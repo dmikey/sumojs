@@ -3,7 +3,7 @@ var requirejs = require('requirejs');
 var config = {
     baseUrl: 'src',
     name: 'main',
-    out: 'dist/sumo.js'
+    out: 'dist/sumo-min.js'
 };
 
 requirejs.optimize(config, function (buildResponse) {

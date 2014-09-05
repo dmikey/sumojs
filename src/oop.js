@@ -48,7 +48,6 @@ define(['./platform', './utility', './mixins', 'require'], function (platform, u
     oop.mixins = function(def, _mixins) {
         //apply mixins to a sumo, and then declare that sumo is ready
         while(_mixins.length > 0) {
-
             var _mixin = _mixins.pop();
             require(['./' + _mixin], function(_mixin_) {
                 def = mixins.mix(def, _mixin_);
