@@ -24,8 +24,6 @@ define(['../messages', '../utility'],function(messages, utility) {
                 //subscribe to some channel
 
                 cb = utility.bind(cb, _component);
-
-
                 messages.sub(this.channel, cb);
             }
         },
