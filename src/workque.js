@@ -8,4 +8,5 @@ define(function(require) {
     var workque = {};
 
     return workque;
+
 });

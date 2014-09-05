@@ -1,4 +1,4 @@
-define(['./platform', './utility', './mixins', 'require'], function (platform, utility, mixins, require) {
+define(['./platform', './utility', './mixins', './components/all', 'require'], function (platform, utility, mixins, components, require) {
 
     var oop = {};
 
@@ -49,10 +49,19 @@ define(['./platform', './utility', './mixins', 'require'], function (platform, u
         //apply mixins to a sumo, and then declare that sumo is ready
         while(_mixins.length > 0) {
             var _mixin = _mixins.pop();
-            require(['./' + _mixin], function(_mixin_) {
-                def = mixins.mix(def, _mixin_);
+
+            if(components[_mixin]){
+                //load mixin from memory object
+                def = mixins.mix(def, components[_mixin]);
                 def.isReady = true;
-            });
+            } else {
+
+                //load modules dynamically from the app source if desired
+                require(['./' + _mixin], function(_mixin_) {
+                    def = mixins.mix(def, _mixin_);
+                    def.isReady = true;
+                });
+            }
         }
 
         //remove the mixins property

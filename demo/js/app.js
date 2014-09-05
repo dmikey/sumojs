@@ -1,8 +1,9 @@
-define(function(){
+//include sumo in your requirejs module
+define(['../../dist/sumo-min'], function(sumo){
     //use require.js, return a sumo object
     return sumo.create({
         name: 'demoApp',
         mixins: ['component'],
-        content: 'I rendered from JavaScript'
+        content: 'I love JavaScript'
     });
 });
