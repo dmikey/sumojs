@@ -1,18 +1,18 @@
 SumoJS
 ======
 
-a minimalistic, responsive, javascript framework. built with requirejs.
+a minimalistic, responsive, javascript ui framework for building native quality portable apps. built with requirejs.
 
 
 
 Create a Sumo
 -------------
 
- 
+
 Creating a Sumo relies on the RequireJS scheme. Sumos are defined as Javascript files, and then loaded (or compiled) with RequireJS.
 
 Here is an example of a file that might be called 'foo.js':
- 
+
 
 ```javascript
 define(['sumo'], function(sumo) {
@@ -50,7 +50,7 @@ requirejs(['./foo'], function (foo) {
     //allows for async module loading inside of mixins!
     _app.ready(function(){
         //this is bound to the instance of this new app!
-        _app.renderInto(document.body);
+        _app.appendTo(document.body);
     });
 });
 ```

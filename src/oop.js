@@ -62,19 +62,17 @@ function (platform,
     };
 
     oop.mixins = function(def, _mixins) {
-        console.log(_mixins);
+
 
         //apply mixins to a sumo, and then declare that sumo is ready
         while(_mixins.length > 0) {
 
             var _mixin = _mixins.pop();
-
             if(components[_mixin]){
 
                 //load mixin from memory object
                 def = mixins.mix(def, components[_mixin]);
             } else {
-
                 //load modules dynamically from the app source if desired
                 require(['./' + _mixin], function(_mixin_) {
                     def = mixins.mix(def, _mixin_);
