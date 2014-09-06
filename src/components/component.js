@@ -28,6 +28,7 @@ define(['../messages', '../utility'],function(messages, utility) {
             }
         },
         appendTo: function(target) {
+
             if(target) {
                 var _component = this;
                 var _tag = document.createElement(_component.tag);
