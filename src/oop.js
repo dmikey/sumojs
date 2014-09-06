@@ -20,20 +20,24 @@ function (platform,
                     return;
               }
 
-              //extend the defs passed to the constructor
-              var extendedDef = utility.extend(def, extend);
-              extendedDef = utility.extend(def, oop.extends);
+              var extendedDef = {};
 
               //apply mixins needed for runtime
               if(def.mixins){
-                  extendedDef.isReady = false;
+                  def.isReady = false;
                   extendedDef = oop.mixins(def, def.mixins);
+              } else {
+
+              }
+              //extend the defs passed to the constructor
+              extendedDef = utility.extend(def, extend);
+              extendedDef = utility.extend(def, oop.extends);
+
+              if(extendedDef.create) {
+                  extendedDef.create();
               }
 
-              if(def.create) {
-                  def.create();
-              }
-
+            console.log(extendedDef);
               return extendedDef;
         }
 
@@ -58,6 +62,7 @@ function (platform,
     };
 
     oop.mixins = function(def, _mixins) {
+        console.log(_mixins);
 
         //apply mixins to a sumo, and then declare that sumo is ready
         while(_mixins.length > 0) {

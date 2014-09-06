@@ -1,10 +1,10 @@
 //include sumo in your requirejs module
-define(['./componentDemo'], function(componentDemo){
+define(['./componentDemo', './webComponentDemo'], function(componentDemo, webComponentDemo){
 
-    var _componentDemo = new componentDemo();
-    //use require.js, return a sumo object
-    return sumo.create({
+    //use require.js, return with sumo objects
+    return {
         name: 'demoContainer',
-        componentDemo: _componentDemo
-    });
+        componentDemo: componentDemo,
+        webComponentDemo: webComponentDemo
+    };
 });

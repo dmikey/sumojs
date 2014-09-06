@@ -13,9 +13,10 @@
             define('app', ['./main'], function(sumo){
                 //use require.js, return a sumo object
                 return sumo.create({
+                    tag: 'customer-compe',
                     name: 'demoApp',
                     classes: 'demo',
-                    mixins: ['component'],
+                    mixins: ['webcomponent'],
                     content: 'I love JavaScript'
                 });
             });

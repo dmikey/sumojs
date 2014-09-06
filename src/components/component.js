@@ -10,7 +10,6 @@ define(['../messages', '../utility'],function(messages, utility) {
     }
 
     var component = {
-        tag: 'div',
         create: function(){
             this.channel = '/'+ this.name +'/rendered';
         },

@@ -2,9 +2,10 @@
 define(['../../dist/sumo-min'], function(sumo){
     //use require.js, return a sumo object
     return sumo.create({
-        name: 'componentDemo',
+        name: 'webComponentDemo',
+        tag: 'custom-tag',
         classes: 'demo',
-        mixins: ['component'],
+        mixins: ['webcomponent'],
         content: 'I love JavaScript',
         create: function(){
             console.log(this);
