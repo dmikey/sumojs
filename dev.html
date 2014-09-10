@@ -7,6 +7,9 @@
             .red {
                 color: red;
             }
+            .blue {
+                color: blue;
+            }
         </style>
 
         <script>
@@ -28,25 +31,33 @@
                 });
             });
 
+            define('app2', ['./main'], function(sumo){
+                //use require.js, return a sumo object
+                return sumo.create({
+                    tag: 'my-new-element',
+                    name: 'demoApp',
+                    classes: 'demo',
+                    mixins: ['webcomponent'],
+                    content: 'WHOA',
+                    template: '<div class="blue"><%=content%></div>'
+                });
+            });
+
+
             //urls are relative for dev mode
-            requirejs(['app'], function (app) {
+            requirejs(['app', 'app2'], function (app, app2) {
 
                 //create a new version of the app
                 //add some properties to the app when constructed
-                var _app = new app({bar: 'baz'});
-
+                var _app = new app();
+                var _app2 = new app2();
 
                 //do some javascript when the app has loaded
                 _app.ready(function(){
 
                     _app.register();
-                    //this is bound to the instance of this new app!
-//                    _app.renderInto(document.body, function() {
-//
-//                        //providing a nice chain of callbacks
-//                        //preserving the 'this' context
-//                        console.log(this.name);
-//                    });
+                    _app2.register();
+
                 });
             });
 
@@ -54,7 +65,9 @@
     </head>
 
     <body>
-        <my-element id="test"></my-element>
+        <my-element id="test">
+            <my-new-element></my-new-element>
+        </my-element>
     </body>
 
 </html>

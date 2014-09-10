@@ -12,7 +12,7 @@ define(['./component', '../mixins'],function(component, mixins) {
                   HTMLElement.prototype, {
                   createdCallback: {value: function() {
                     //fill the node with it's template
-                    this.innerHTML = _this.generateInnerHTML();
+                    this.innerHTML += _this.generateInnerHTML();
                   }},
 
                   //other call backs that need to be attached somewhere
