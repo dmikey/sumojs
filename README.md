@@ -72,13 +72,8 @@ define(['sumo'], function(sumo){
 });
 ```
 
-Now use your component in the DOM as regular a HTML Element!
-```html
-<my-element id="myElementId"></my-element>
-```
-
-
 Instead of rendering into a placeholder, we just need to register our custom element when SumoJS is ready.
+We still load it through require, giving us a bit more control over what happens with out elements.
 
 
 ```javascript
@@ -94,4 +89,9 @@ requirejs(['./foo'], function (foo) {
         _foo.register();
     });
 });
+```
+
+Now use your component in the DOM as regular a HTML Element!
+```html
+<my-element id="myElementId"></my-element>
 ```
