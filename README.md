@@ -74,5 +74,24 @@ define(['sumo'], function(sumo){
 
 Now use your component in the DOM as regular a HTML Element!
 ```html
-<my-element id="test"></my-element>
+<my-element id="myElementId"></my-element>
+```
+
+
+Instead of rendering into a placeholder, we just need to register our custom element when SumoJS is ready.
+
+
+```javascript
+requirejs(['./foo'], function (foo) {
+
+    //create a new version of foo which is using our
+    //webcomponent mixin
+    var _foo = new foo();
+
+    //when a component is ready
+    _foo.ready(function(){
+        //this is registered in the browser!
+        _foo.register();
+    });
+});
 ```
