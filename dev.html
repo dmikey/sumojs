@@ -3,6 +3,12 @@
     <head>
         <script src="node_modules/requirejs/require.js"></script>
 
+        <style>
+            .red {
+                color: red;
+            }
+        </style>
+
         <script>
             requirejs.config({
                 baseUrl: 'src'
@@ -13,7 +19,7 @@
             define('app', ['./main'], function(sumo){
                 //use require.js, return a sumo object
                 return sumo.create({
-                    tag: 'customer-compe',
+                    tag: 'my-element',
                     name: 'demoApp',
                     classes: 'demo',
                     mixins: ['webcomponent'],
@@ -33,12 +39,14 @@
                 //do some javascript when the app has loaded
                 _app.ready(function(){
 
+                    _app.register();
                     //this is bound to the instance of this new app!
-                    _app.renderInto(document.body, function() {
-                        //providing a nice chain of callbacks
-                        //preserving the 'this' context
-                        console.log(this.name);
-                    });
+//                    _app.renderInto(document.body, function() {
+//
+//                        //providing a nice chain of callbacks
+//                        //preserving the 'this' context
+//                        console.log(this.name);
+//                    });
                 });
             });
 
@@ -46,6 +54,7 @@
     </head>
 
     <body>
+        <my-element id="test"></my-element>
     </body>
 
 </html>

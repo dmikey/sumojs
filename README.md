@@ -54,3 +54,25 @@ requirejs(['./foo'], function (foo) {
     });
 });
 ```
+
+What, you don't like building things in JavaScript all the time? You want to use HTML5 webcomponent? Us too!
+
+```javascript
+define(['sumo'], function(sumo){
+    //use require.js, return a sumo object
+    return sumo.create({
+        //make sure you tag your new element
+        tag: 'my-element',
+        //add the webcomponent mixin
+        mixins: ['webcomponent'],
+        content: 'I love JavaScript',
+        //create a template, and bind values of this object to it
+        template: '<div class="red"><%=content%></div>'
+    });
+});
+```
+
+Now use your component in the DOM as regular a HTML Element!
+```html
+<my-element id="test"></my-element>
+```

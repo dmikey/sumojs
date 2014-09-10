@@ -14,16 +14,23 @@ define(['../messages', '../utility'],function(messages, utility) {
         create: function(){
             this.channel = '/'+ this.name +'/rendered';
         },
+        generateHTML: function(){
+            var _tag = document.createElement(_component.tag);
+            _tag.innerHTML = this.generateInnerHTML();
+            return _tag.outerHTML;
+        },
+        generateInnerHTML: function(){
+            var _component = this;
+            return buildHTML(_component);
+        },
         renderInto: function(target, cb) {
 
             if(target) {
-                var _component = this;
-                var _tag = document.createElement(_component.tag);
-                _tag.innerHTML = buildHTML(_component);
-                target.innerHTML = _tag.outerHTML;
+
+                target.innerHTML = this.generateHTML();
 
                 //subscribe to some channel
-                cb = utility.bind(cb, _component);
+                cb = utility.bind(cb, this);
                 messages.sub(this.channel, cb);
             }
         },
