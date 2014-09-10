@@ -4,8 +4,8 @@ define(['./component', '../mixins'],function(component, mixins) {
 
     };
 
+    //add support from components
     webcomponent = mixins.mix(component, webcomponent);
-
 
     return webcomponent;
 });
