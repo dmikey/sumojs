@@ -4,11 +4,20 @@ SumoJS
 A minimalistic, responsive, javascript ui framework for building native quality portable apps. built with requirejs,
 and influenced by webcomponents.
 
+Features
+
+* modular - built with RequireJS in mind.
+* messaging
+* mixins
+* helpers (ready, extend ..)
+* routing
+* two way data binding
+* templating
+* custom HTML element support
 
 
 Create a Sumo
 -------------
-
 
 Creating a Sumo relies on the RequireJS scheme. Sumos are defined as Javascript files, and then loaded (or compiled) with RequireJS.
 
