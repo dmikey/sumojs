@@ -2,11 +2,12 @@ define(['../messages', '../utility'],function(messages, utility) {
 
     var buildHTML = function(component) {
 
-        if(component.components){
-
+        if(component.template){
+            return utility.template(component.template, component);
+        } else {
+            return component.content || '';
         }
 
-        return component.content || '';
     }
 
     var component = {
@@ -20,8 +21,8 @@ define(['../messages', '../utility'],function(messages, utility) {
                 var _tag = document.createElement(_component.tag);
                 _tag.innerHTML = buildHTML(_component);
                 target.innerHTML = _tag.outerHTML;
-                //subscribe to some channel
 
+                //subscribe to some channel
                 cb = utility.bind(cb, _component);
                 messages.sub(this.channel, cb);
             }

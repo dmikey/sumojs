@@ -17,7 +17,8 @@
                     name: 'demoApp',
                     classes: 'demo',
                     mixins: ['webcomponent'],
-                    content: 'I love JavaScript'
+                    content: 'I love JavaScript',
+                    template: '<div class="red"><%=content%></div>'
                 });
             });
 
@@ -28,8 +29,10 @@
                 //add some properties to the app when constructed
                 var _app = new app({bar: 'baz'});
 
+
                 //do some javascript when the app has loaded
                 _app.ready(function(){
+
                     //this is bound to the instance of this new app!
                     _app.renderInto(document.body, function() {
                         //providing a nice chain of callbacks

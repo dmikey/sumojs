@@ -116,6 +116,11 @@ function (platform,
             }
         }
 
+        //if there are no requiredMixins we can resolve this component now
+        if(requiredMixins.length == 0) {
+            def.isReady = true;
+        }
+
         //remove mixins property
         delete def.mixins;
         return def;
