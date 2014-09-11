@@ -27,6 +27,7 @@ function (platform,
 
               //apply mixins needed for runtime
               //mixins have a race condition
+
               if(def.mixins){
                   def.isReady = false;
                   extendedDef = oop.mixins(def, def.mixins);
@@ -34,9 +35,12 @@ function (platform,
 
               }
 
+
               //extend the defs passed to the constructor
               extendedDef = utility.extend(def, extend);
               extendedDef = utility.extend(def, oop.extends);
+
+            console.log(extendedDef);
 
               if(extendedDef.create) {
                   extendedDef.create();

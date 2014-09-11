@@ -19,6 +19,19 @@
         </script>
 
         <script>
+
+            //create a Sumo router
+            define('router', ['./main'], function(sumo){
+                return sumo.create({
+                    mixins: ['router'],
+                    routes: {
+                        '#test': function(){
+                            alert('routed!');
+                        }
+                    }
+                });
+            });
+
             define('app', ['./main'], function(sumo){
                 //use require.js, return a sumo object
                 return sumo.create({
@@ -45,7 +58,10 @@
 
 
             //urls are relative for dev mode
-            requirejs(['app', 'app2'], function (app, app2) {
+            requirejs(['app', 'app2', 'router'], function (app, app2, router) {
+
+                //create an intance of the router
+                var _router = new router();
 
                 //create a new version of the app
                 //add some properties to the app when constructed

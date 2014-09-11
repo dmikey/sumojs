@@ -1,8 +1,9 @@
-define(['./component', './webcomponent'], function(component, webcomponent) {
+define(['./component', './webcomponent', './router'], function(component, webcomponent, router) {
 
     var components = {
         component: component,
-        webcomponent: webcomponent
+        webcomponent: webcomponent,
+        router: router
     };
 
 
