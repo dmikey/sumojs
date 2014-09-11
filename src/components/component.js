@@ -12,7 +12,7 @@ define(['../messages', '../utility'],function(messages, utility) {
 
     var component = {
         create: function(){
-            this.channel = '/'+ this.name +'/rendered';
+            this.channel = '/'+ this.name;
         },
         generateHTML: function(){
             var _tag = document.createElement(_component.tag);
@@ -24,23 +24,20 @@ define(['../messages', '../utility'],function(messages, utility) {
             return buildHTML(_component);
         },
         renderInto: function(target, cb) {
-
             if(target) {
-
                 target.innerHTML = this.generateHTML();
-
-                //subscribe to some channel
-                cb = utility.bind(cb, this);
-                messages.sub(this.channel, cb);
+                //publish that this has rendered
+                messages.pub(this.channel + '/rendered');
             }
         },
         appendTo: function(target) {
-
             if(target) {
                 var _component = this;
                 var _tag = document.createElement(_component.tag);
                 _tag.innerHTML = buildHTML(_component);
                 target.appendChild(_tag);
+                //publish that this was appended
+                messages.pub(this.channel + '/appended');
             }
         }
     };

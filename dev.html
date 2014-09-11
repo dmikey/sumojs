@@ -35,6 +35,7 @@
                 });
             });
 
+            //create a sumo component
             define('app', ['./main'], function(sumo){
                 //use require.js, return a sumo object
                 return sumo.create({
@@ -47,6 +48,7 @@
                 });
             });
 
+            //create another sumo component
             define('app2', ['./main'], function(sumo){
                 //use require.js, return a sumo object
                 return sumo.create({
@@ -58,7 +60,6 @@
                     template: '<div class="blue"><%=content%></div>'
                 });
             });
-
 
             //urls are relative for dev mode
             requirejs(['app', 'app2', 'router'], function (app, app2, router) {
@@ -74,8 +75,14 @@
                 //do some javascript when the app has loaded
                 _app.ready(function(){
 
-                    _app.register();
-                    _app2.register();
+
+
+                });
+
+                //do some javascript when the app has loaded
+                _app2.ready(function(){
+
+
 
                 });
             });
@@ -85,7 +92,7 @@
 
     <body>
         <my-element id="test">
-            <my-new-element></my-new-element>
+            <my-new-element id="innertest"></my-new-element>
         </my-element>
     </body>
 

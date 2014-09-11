@@ -81,9 +81,8 @@ define(['sumo'], function(sumo){
 });
 ```
 
-Instead of rendering into a placeholder, we just need to register our custom element when SumoJS is ready.
-We still load it through require, giving us a bit more control over what happens with out elements.
-
+SumoJS will prepare and register your new Custom Element, when that ha been done, the component will
+trigger ready.
 
 ```javascript
 requirejs(['./foo'], function (foo) {
@@ -94,8 +93,8 @@ requirejs(['./foo'], function (foo) {
 
     //when a component is ready
     _foo.ready(function(){
-        //this is registered in the browser!
-        _foo.register();
+        //run some code if you need to when component is ready
+        //this is not the same as component resolved
     });
 });
 ```

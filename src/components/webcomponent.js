@@ -1,15 +1,19 @@
 define(['./component', '../mixins'],function(component, mixins) {
 
+    var webcomponent = mixins.mix(HTMLElement.prototype, component);
+
+
     //define a web component, it will mixin from component
-    var webcomponent = {
-        register: function() {
+    var extend = {
+        create: function() {
             if(!this.tag) { throw "need TAG property when using mixin webcomponent" };
             var _this = this;
+
             this.instance = document.registerElement(
               this.tag,
               {
                 prototype: Object.create(
-                  HTMLElement.prototype, {
+                  _this, {
                   createdCallback: {value: function() {
                     //fill the node with it's template
                     this.innerHTML += _this.generateInnerHTML();
@@ -52,8 +56,6 @@ define(['./component', '../mixins'],function(component, mixins) {
         }
     };
 
-    //add support from components
-    webcomponent = mixins.mix(component, webcomponent);
-
+    webcomponent = mixins.mix(webcomponent, extend);
     return webcomponent;
 });
