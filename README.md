@@ -109,7 +109,7 @@ What about routing? Yeah, SumoJS can help you with routing hashes too!
 
 ```javascript
 //create a Sumo router
-define('router', ['./main'], function(sumo){
+define('router', ['sumo'], function(sumo){
     return sumo.create({
         mixins: ['router'],
         routes: {
