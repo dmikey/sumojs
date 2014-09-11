@@ -108,15 +108,15 @@ Now use your component in the DOM as regular a HTML Element!
 What about routing? Yeah, SumoJS can help you with routing hashes too!
 
 ```javascript
-            //create a Sumo router
-            define('router', ['./main'], function(sumo){
-                return sumo.create({
-                    mixins: ['router'],
-                    routes: {
-                        '#test': function(){
-                            alert('routed!');
-                        }
-                    }
-                });
-            });
+//create a Sumo router
+define('router', ['./main'], function(sumo){
+    return sumo.create({
+        mixins: ['router'],
+        routes: {
+            '#test': function(){
+                alert('routed!');
+            }
+        }
+    });
+});
 ```
