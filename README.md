@@ -64,7 +64,7 @@ requirejs(['./foo'], function (foo) {
 });
 ```
 
-What, you don't like building things in JavaScript all the time? You want to use HTML5 webcomponent? Us too!
+What, you don't like building things in JavaScript all the time? You want to use HTML5 Custom Elements? Us too!
 
 ```javascript
 define(['sumo'], function(sumo){

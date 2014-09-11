@@ -6,6 +6,5 @@ define(['./component', './webcomponent', './router'], function(component, webcom
         router: router
     };
 
-
     return components;
 });
