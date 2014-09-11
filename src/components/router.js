@@ -1,7 +1,9 @@
 define(['../platform', '../utility'],function (platform, utility) {
 
     var route = function(scope, hash){
-        scope.routes[hash]();
+        scope.hash = hash;
+        var cb = utility.bind(scope.routes[hash], scope);
+        cb();
     };
 
     var router = {

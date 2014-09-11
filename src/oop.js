@@ -35,12 +35,9 @@ function (platform,
 
               }
 
-
               //extend the defs passed to the constructor
               extendedDef = utility.extend(def, extend);
               extendedDef = utility.extend(def, oop.extends);
-
-            console.log(extendedDef);
 
               if(extendedDef.create) {
                   extendedDef.create();
