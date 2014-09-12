@@ -13,6 +13,7 @@ Features
 * two way data binding
 * templating
 * custom HTML element support
+* simple inheritance
 
 
 Create a Sumo
@@ -116,6 +117,48 @@ define('router', ['sumo'], function(sumo){
                 alert('routed!');
             }
         }
+    });
+});
+```
+
+SumoJS also offers Simple Inheritance, combined with RequireJS, allows for building robust
+extensible applications. Here is a peek.
+
+```javascript
+//create a sumo object, we will inherit from
+define('mainSumo', ['sumo'], function(sumo){
+    return sumo.create({
+        mixins: ['component'],
+        create: function() {
+            //do some things to initialize mainSumo
+            console.log('I am from mainSumo type, but owner is:', this);
+        }
+    });
+});
+
+//create a sumo object, that will extend mainSumo
+define('extendedSumo', ['sumo', 'mainSumo'], function(sumo, mainSumo){
+    return sumo.create({
+        mixins: [mainSumo],
+        create: function() {
+            //do some things to initialize mainSumo
+            console.log('I am from mainSumo type, but owner is:', this);
+        }
+    });
+});
+
+//extendedSumo is now ready to use
+requirejs(['extendedSumo'], function (extendedSumo) {
+
+    //create a new version of foo which is using our
+    //webcomponent mixin
+    var _extendedSumo = new extendedSumo();
+
+    //when a component is ready
+    _extendedSumo.ready(function(){
+        //run some code if you need to when component is ready
+        //this is not the same as component resolved
+        _extendedSumo.appendTo(document.body);
     });
 });
 ```
