@@ -22,13 +22,11 @@ define(function (require) {
                          //set the obj function
                          obj[prop] = function(){
                             var thisFunc = utility.bind(_sourceFunc, this);
-                            var inherited = utility.bind(_objFunc, this);
+                            var inherited = _objFunc
 
                             var _arguments = [inherited].concat(arguments);
 
-                            thisFunc.inherited = inherited;
                             thisFunc.apply(this, _arguments);
-                            //inherited.apply(this, arguments);
                          }
 
                     }(obj[prop],

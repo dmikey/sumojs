@@ -19,15 +19,22 @@ define(['../messages', '../utility'],function(messages, utility) {
 
             this.channel = '/'+ this.name;
 
+            var propertyUpdater = function(prop, instance) {
+                instance.innerHTML = instance.generateHTML();
+            };
+
+            var _this = this;
             //setup property observers for binding
             for(var prop in this) {
-               messages.sub(this.channel + '/' + prop, function(){
-                    console.log('updated');
-               });
+               (function(channel, _prop){
+                   messages.sub(channel + '/' + _prop, function(){
+                        propertyUpdater(_prop, _this);
+                   });
+               }(this.channel, prop))
             }
         },
         generateHTML: function(){
-            var _tag = document.createElement(_component.tag);
+            var _tag = document.createElement(this.tag);
             _tag.innerHTML = this.generateInnerHTML();
             return _tag.outerHTML;
         },

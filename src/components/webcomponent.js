@@ -1,3 +1,5 @@
+//todo: renderInto inherited from component, breaks webcomponent prototype
+
 define(['./component', '../mixins', '../messages'], function(component, mixins, messages) {
 
     var webcomponent = mixins.mix(HTMLElement.prototype, component);
@@ -18,6 +20,8 @@ define(['./component', '../mixins', '../messages'], function(component, mixins, 
                 prototype: Object.create(
                   _this, {
                   createdCallback: {value: function() {
+                    //run inherited create
+                    sup.apply(this, arguments);
                     //fill the node with it's template
                     this.innerHTML += _this.generateInnerHTML();
                     messages.pub(this.channel + '/rendered');
@@ -55,9 +59,6 @@ define(['./component', '../mixins', '../messages'], function(component, mixins, 
                 })
               }
             );
-
-            //call the inherited create from component
-            sup.apply(this, arguments);
         }
     };
 
