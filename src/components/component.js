@@ -11,8 +11,20 @@ define(['../messages', '../utility'],function(messages, utility) {
     }
 
     var component = {
+        set: function(prop, val) {
+            this[prop] = val;
+            messages.pub(this.channel + '/' + prop);
+        },
         create: function(){
+            console.log(this);
             this.channel = '/'+ this.name;
+
+//            //setup property observers for binding
+//            for(var prop in this) {
+//               messages.sub(this.channel + '/' + prop, function(){
+//                    console.log('updated');
+//               });
+//            }
         },
         generateHTML: function(){
             var _tag = document.createElement(_component.tag);

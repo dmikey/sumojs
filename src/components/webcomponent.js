@@ -1,11 +1,14 @@
-define(['./component', '../mixins'],function(component, mixins) {
+define(['./component', '../mixins', '../messages'], function(component, mixins, messages) {
 
     var webcomponent = mixins.mix(HTMLElement.prototype, component);
 
 
     //define a web component, it will mixin from component
     var extend = {
-        create: function() {
+        //we'll be extended component.create
+        //the inherited function is passed in as the first param
+        create: function(sup) {
+
             if(!this.tag) { throw "need TAG property when using mixin webcomponent" };
             var _this = this;
 
@@ -17,6 +20,7 @@ define(['./component', '../mixins'],function(component, mixins) {
                   createdCallback: {value: function() {
                     //fill the node with it's template
                     this.innerHTML += _this.generateInnerHTML();
+                    messages.pub(this.channel + '/rendered');
                   }},
 
                   //other call backs that need to be attached somewhere
@@ -52,7 +56,8 @@ define(['./component', '../mixins'],function(component, mixins) {
               }
             );
 
-
+            //call the inherited create from component
+            sup.apply(this, arguments);
         }
     };
 

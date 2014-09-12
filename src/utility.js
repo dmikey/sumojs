@@ -12,10 +12,34 @@ define(function (require) {
         var source, prop;
         for (var i = 1, length = arguments.length; i < length; i++) {
             source = arguments[i];
-                for (prop in source) {
-                obj[prop] = source[prop];
+
+            for (prop in source) {
+                // if we are copying over functions lets extend the original function
+                if(typeof obj[prop] == 'function' && typeof source[prop] == 'function') {
+
+                    //closure ref
+                    (function(_objFunc, _sourceFunc){
+                         //set the obj function
+                         obj[prop] = function(){
+                            var thisFunc = utility.bind(_sourceFunc, this);
+                            var inherited = utility.bind(_objFunc, this);
+
+                            var _arguments = [inherited].concat(arguments);
+
+                            thisFunc.inherited = inherited;
+                            thisFunc.apply(this, _arguments);
+                            //inherited.apply(this, arguments);
+                         }
+
+                    }(obj[prop],
+                      source[prop]))
+
+              } else {
+                    obj[prop] = source[prop];
+              }
             }
         }
+
         return obj;
     };
 
