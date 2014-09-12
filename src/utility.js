@@ -32,6 +32,8 @@ define(function (require) {
     };
 
     utility.bind = function (func, context) {
+            //return an error to the callee class when used
+            if(!func) {return func};
             //bind function ripped from underscore, changes the scope of this inside func to context
             var ArrayProto = Array.prototype,
                 FuncProto = Function.prototype,

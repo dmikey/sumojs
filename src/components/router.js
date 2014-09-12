@@ -20,7 +20,7 @@ define(['../platform', '../utility'],function (platform, utility) {
             window.onhashchange = function () {
                 hashChange();
             }
-            route(this, hash);
+            if(hash.length > 0 && typeof hash == 'function') route(this, hash);
         }
     };
 
