@@ -1,7 +1,8 @@
 SumoJS
 ======
 
-A minimalistic, responsive, javascript ui framework for building native quality apps with requirejs, and influenced by webcomponents.
+A minimalistic, responsive, javascript framework for building quality apps with requirejs. Influnced
+by webcomponents, and infused with a goal to be 100% pluggable.
 
 Features
 

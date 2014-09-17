@@ -11,7 +11,7 @@ define(['./component', '../mixins', '../messages'], function(component, mixins, 
         //the inherited function is passed in as the first param
         create: function(sup) {
 
-            if(!this.tag) { throw "need TAG property when using mixin webcomponent" };
+            if(!this.tag) { throw "need .tag property when using mixin webcomponent" };
             var _this = this;
 
             this.instance = document.registerElement(
