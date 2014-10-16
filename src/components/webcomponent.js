@@ -1,6 +1,6 @@
 //todo: renderInto inherited from component, breaks webcomponent prototype
 
-define(['./component', '../mixins', 'yobidashi/main'], function(component, mixins, messages) {
+define(['./component', 'ichimon/main', 'yobidashi/main'], function(component, mixins, messages) {
 
     var webcomponent = mixins.mix(HTMLElement.prototype, component);
 
