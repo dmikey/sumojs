@@ -1,4 +1,4 @@
-define(['yobidashi/main.js', '../utility'], function(messages, utility) {
+define(['yobidashi/main', '../utility'], function(messages, utility) {
 
     var buildHTML = function(component) {
 
