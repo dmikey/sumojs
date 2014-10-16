@@ -7,3 +7,9 @@
 [submodule "src/ichimon"]
 	path = src/ichimon
 	url = ../ichimon/
+[submodule "src/oyakata"]
+	path = src/oyakata
+	url = ../oyakata/
+[submodule "src/basho"]
+	path = src/basho
+	url = ../basho

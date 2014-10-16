@@ -15,4 +15,4 @@ There are underlying goals as well.
 * No ETA
 * Always Fix Bugs
 * Always refactor, and remove debt
-* Stop being clever, right clean, readable code for tomorrow
+* Stop being clever, write clean, readable code for tomorrow
