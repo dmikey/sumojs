@@ -50,7 +50,6 @@ define(function (require) {
                 func();
             }
         }, 10);
-
     };
 
     utility.bind = function (func, context) {

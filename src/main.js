@@ -1,34 +1,30 @@
 /*
-* Start bolting things together
-* MIT License, all that Jazz. Use it however.
-* 2014 Derek M. Anderson
-*/
-   define(['oop'
-          ,'platform'
-          ,'utility'
-          ,'mixins'
-          ,'messages'
-          ,'meta'],
-  function (oop
-           ,platform
-           ,utility
-           ,mixins
-           ,messages
-           ,meta) {
+ * Start bolting things together
+ * MIT License, all that Jazz. Use it however.
+ * 2014 Derek M. Anderson
+ */
+define(['oop', 'platform', 'haridashi/main', 'mixins', 'yobidashi/main', 'meta'],
+	function (oop, platform, haridashi, mixins, yobidashi, meta) {
 
-    //public api map
-    var sumo = platform.scope.sumo = {
-        bind: utility.bind,
-        create: oop.create,
-        extend: utility.extend,
-        mixin: mixins.mix,
-        platform: platform,
-        ready: utility.ready,
-        version: meta.version,
-        pub: messages.pub,
-        sub: messages.sub,
-        unsub: messages.unsub
-    };
+		//public api map
+		var sumo = platform.scope.sumo = {
+			/* bindings for utility lib */
+			bind: haridashi.bind,
+			extend: haridashi.extend,
+			ready: haridashi.ready,
 
-    return sumo;
+			create: oop.create,
+
+			mixin: mixins.mix,
+			platform: platform,
+
+			version: meta.version,
+
+			/* bindings for a messaging lib */
+			pub: yobidashi.pub,
+			sub: yobidashi.sub,
+			unsub: yobidashi.unsub
+		};
+
+		return sumo;
 });
