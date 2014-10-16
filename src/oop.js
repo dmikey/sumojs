@@ -1,4 +1,4 @@
-define(['./platform', './utility', 'ichimon/main', './components/all', 'yobidashi/main', 'require'],
+define(['./platform', 'haridashi/main', 'ichimon/main', './components/all', 'yobidashi/main', 'require'],
     function (platform, utility, mixins, components, messages, require) {
 
         var oop = {};

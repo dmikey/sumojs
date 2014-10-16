@@ -1,4 +1,4 @@
-define(['../platform', '../utility'],function (platform, utility) {
+define(['../platform', 'haridashi/main'],function (platform, utility) {
 
     var route = function(scope, hash){
         scope.hash = hash;
