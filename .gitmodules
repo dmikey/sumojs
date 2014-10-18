@@ -19,3 +19,6 @@
 [submodule "contribs/contrib-sumo-router"]
 	path = contribs/contrib-sumo-router
 	url = ../contrib-sumo-router/
+[submodule "src/henka"]
+	path = src/henka
+	url = ../henka/
