@@ -16,3 +16,6 @@
 [submodule "src/sumoji"]
 	path = src/sumoji
 	url = ../sumoji
+[submodule "contribs/contrib-sumo-router"]
+	path = contribs/contrib-sumo-router
+	url = ../contrib-sumo-router/
