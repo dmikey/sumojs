@@ -3,7 +3,13 @@
  * MIT License, all that Jazz. Use it however.
  * 2014 Derek M. Anderson
  */
-define(['oyakata/main', 'platform', 'haridashi/main', 'ichimon/main', 'yobidashi/main', 'meta'],
+define('meta', function(){
+   return {
+       version: '0.0.2'
+   }
+});
+
+define(['oyakata/main', 'basho/main', 'haridashi/main', 'ichimon/main', 'yobidashi/main', 'meta'],
 	function (oop, platform, haridashi, mixins, yobidashi, meta) {
 
 		//public api map
