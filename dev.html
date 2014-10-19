@@ -47,7 +47,7 @@
                     classes: 'demo',
                     mixins: ['webcomponent'],
                     content: 'I love JavaScript',
-                    template: '<div class="red"><%=content%></div>'
+                    template: 'red_template'
                 });
             });
 
@@ -78,6 +78,9 @@
     </head>
 
     <body>
+		<template id="red_template">
+			<div class="red"><%=content%></div>
+		</template>
         <my-element id="test">
             <my-new-element id="innertest"></my-new-element>
         </my-element>
