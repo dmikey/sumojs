@@ -25,6 +25,7 @@
             //create a Sumo router
             define('router', ['./main', '../contribs/main'], function(sumo, contribs){
                 return sumo.create({
+					routeOnStart: true,
                     mixins: [contribs.router],
                     routes: {
                         '#test': function() {
