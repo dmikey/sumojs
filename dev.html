@@ -3,6 +3,7 @@
     <head>
         <script src="node_modules/requirejs/require.js"></script>
 
+
         <style>
             .red {
                 color: red;
@@ -18,12 +19,13 @@
             });
         </script>
 
+
         <script>
 
             //create a Sumo router
-            define('router', ['./main'], function(sumo){
+            define('router', ['./main', '../contribs/main'], function(sumo, contribs){
                 return sumo.create({
-                    mixins: ['router'],
+                    mixins: [contribs.router],
                     routes: {
                         '#test': function() {
                             console.log(this.hash);
@@ -64,14 +66,11 @@
             //urls are relative for dev mode
             requirejs(['app', 'app2', 'router'], function (app, app2, router) {
 
-                //create an intance of the router
-                var _router = new router();
-
                 //create a new version of the app
                 //add some properties to the app when constructed
                 var _app = new app();
                 var _app2 = new app2();
-
+				var _router = new router();
             });
 
         </script>
