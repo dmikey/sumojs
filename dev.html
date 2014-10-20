@@ -45,7 +45,7 @@
                     tag: 'my-element',
                     name: 'demoApp',
                     classes: 'demo',
-                    mixins: ['webcomponent'],
+                    mixins: ['component'],
                     content: 'I love JavaScript',
                     template: 'red_template'
                 });
@@ -70,14 +70,14 @@
                 //create a new version of the app
                 //add some properties to the app when constructed
                 var _app = new app();
-                var _app2 = new app2();
-				var _router = new router();
+           		_app.renderInto(document.getElementById('render_target'));
             });
 
         </script>
     </head>
 
     <body>
+		<div id="render_target"></div>
 		<template id="red_template">
 			<div class="red"><%=content%></div>
 		</template>
