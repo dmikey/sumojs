@@ -1,24 +1,24 @@
 [submodule "src/yobidashi"]
 	path = src/yobidashi
-	url = ../yobidashi
+	url = https://github.com/dmikey/yobidashi.git
 [submodule "src/haridashi"]
 	path = src/haridashi
-	url = ../haridashi/
+	url = https://github.com/dmikey/haridashi.git
 [submodule "src/ichimon"]
 	path = src/ichimon
-	url = ../ichimon/
+	url = https://github.com/dmikey/ichimon.git
 [submodule "src/oyakata"]
 	path = src/oyakata
-	url = ../oyakata/
+	url = https://github.com/dmikey/oyakata.git
 [submodule "src/basho"]
 	path = src/basho
-	url = ../basho
+	url = https://github.com/dmikey/basho.git
 [submodule "src/sumoji"]
 	path = src/sumoji
-	url = ../sumoji
+	url = https://github.com/dmikey/sumoji.git
 [submodule "contribs/contrib-sumo-router"]
 	path = contribs/contrib-sumo-router
-	url = ../contrib-sumo-router/
+	url = https://github.com/dmikey/contrib-sumo-router.git
 [submodule "src/henka"]
 	path = src/henka
-	url = ../henka/
+	url = https://github.com/dmikey/henka.git
