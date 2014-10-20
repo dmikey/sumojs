@@ -9,7 +9,7 @@ define('meta', function(){
    }
 });
 
-define(['oyakata/main', 'basho/main', 'haridashi/main', 'ichimon/main', 'yobidashi/main', 'meta'],
+define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', './yobidashi/main', 'meta'],
 	function (oop, platform, haridashi, mixins, yobidashi, meta) {
 
 		//public api map
