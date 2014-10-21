@@ -9,8 +9,8 @@ define('meta', function(){
    }
 });
 
-define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', './yobidashi/main', 'meta'],
-	function (oop, platform, haridashi, mixins, yobidashi, meta) {
+define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', './yobidashi/main', './henka', 'meta'],
+	function (oop, platform, haridashi, mixins, yobidashi, henka, meta) {
 
 		//public api map
 		var sumo = platform.scope.sumo = {
