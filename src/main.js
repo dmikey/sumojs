@@ -3,10 +3,10 @@
  * MIT License, all that Jazz. Use it however.
  * 2014 Derek M. Anderson
  */
-define('meta', function(){
-   return {
-       version: '0.0.2'
-   }
+define('meta', function () {
+	return {
+		version: '0.0.2'
+	}
 });
 
 define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', './yobidashi/main', './henka/main', 'meta'],
@@ -18,15 +18,10 @@ define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', 
 			bind: haridashi.bind,
 			extend: haridashi.extend,
 			ready: haridashi.ready,
-
 			create: oop.create,
-
 			mixin: mixins.mix,
-
-
 			platform: platform,
 			version: meta.version,
-
 			/* bindings for a messaging lib */
 			pub: yobidashi.pub,
 			sub: yobidashi.sub,
@@ -34,4 +29,4 @@ define(['./oyakata/main', './basho/main', './haridashi/main', './ichimon/main', 
 		};
 
 		return sumo;
-});
+	});

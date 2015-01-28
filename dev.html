@@ -59,17 +59,35 @@
                     classes: 'demo',
                     mixins: ['webcomponent'],
                     content: 'WHOA',
-                    template: '<div class="blue"><%=content%></div>'
+                    template: '<div class="blue"><%=content%></div>',
+
+					//todo webcomponents have a complex create process
+					//create can't be overridden
+					//this needs to be fixed
+					created: function() {
+						console.log('created');
+					},
+					attached: function() {
+						console.log('attached');
+					},
+					detached: function() {
+						console.log('detached');
+					}
                 });
             });
 
             //urls are relative for dev mode
             requirejs(['app', 'app2', 'router'], function (app, app2, router) {
 
+//				new router();
+
                 //create a new version of the app
                 //add some properties to the app when constructed
                 var _app = new app();
            		_app.renderInto(document.getElementById('render_target'));
+
+
+				var _app2 = new app2();
             });
 
         </script>
@@ -80,9 +98,9 @@
 		<template id="red_template">
 			<div class="red"><%=content%></div>
 		</template>
-        <my-element id="test">
-            <my-new-element id="innertest"></my-new-element>
-        </my-element>
+
+        <my-new-element id="innertest"></my-new-element>
+
     </body>
 
 </html>
