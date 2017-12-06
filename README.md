@@ -1,3 +1,8 @@
+DONT USE THIS
+=============
+
+I've moved on from RequireJS and so should you. ES Imports are the way to go. And the Class pattern is being made a big hit by react. Checkout http://www.github.com/dmikey/syr for the new new.
+
 SumoJS
 ======
 
